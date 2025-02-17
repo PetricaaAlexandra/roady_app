@@ -3,6 +3,7 @@ from PyQt6 import QtWidgets
 from tkinter import messagebox
 from Utils.distance import Distance
 from Utils.gas import Gas
+from diesel import Diesel
 from roady import Roady
 from Utils.init_config import config
 from roady_gui import Ui_MainWindow
@@ -53,9 +54,13 @@ def calculate_price():
 
 		if ui.fuel_type_comboBox.currentTex() == "Gas":
 			gas_price = Gas(config)
+		elif ui.fuel_type_comboBox.currentText() == "Diesel":
+			diesel_price = Diesel(config)
 		else:
-			# TODO create diesel class which inherits Fuel
-			pass
+			messagebox.showerror(title="Error", message="Please select a fuel type")
+			return
+
+
 
 		roady = Roady(dist, gas_price)
 

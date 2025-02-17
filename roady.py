@@ -1,13 +1,14 @@
 from Utils.distance import Distance
+from Utils.fuel import Fuel
 from Utils.gas import Gas
 from Utils.init_config import config
 
 
 class Roady:
 
-	def __init__(self, dist: Distance, gas_price: Gas):
+	def __init__(self, dist: Distance, fuel_price: Fuel):
 		self.distance = dist
-		self.gas = gas_price
+		self.fuel = fuel_price
 
 
 	def calculate_price(self, persons: int, fuel_consumption: float,
